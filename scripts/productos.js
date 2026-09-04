@@ -37,8 +37,6 @@ export function eliminarProducto(indice){
     localStorage.setItem("productos", JSON.stringify(productos));
     mostrarListaAdmin();
     mostrarProductos();
-}
-
 export function modificarProducto(){
 	let nombre = document.getElementById("nombreProducto").value;
     let nuevoNombre = document.getElementById("nuevoNombre").value;
