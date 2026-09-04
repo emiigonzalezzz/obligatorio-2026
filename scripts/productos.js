@@ -1,5 +1,4 @@
-let productos = JSON.parse(localStorage.getItem("productos")) || [];
-
+export let productos = JSON.parse(localStorage.getItem("productos")) || [];
 export function agregarProducto(){
 let producto ={
      nombre: document.getElementById("nombre").value,
