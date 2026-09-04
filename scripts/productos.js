@@ -179,7 +179,7 @@ let ventas = JSON.parse(localStorage.getItem("ventas")) || [];
 `;
 }
 }
-function eliminarVenta(indice){
+export function eliminarVenta(indice){
     let ventas = JSON.parse(localStorage.getItem("ventas")) || [];
     ventas.splice(indice, 1);
     localStorage.setItem("ventas", JSON.stringify(ventas));
