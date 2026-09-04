@@ -303,6 +303,11 @@ input::placeholder {
     cursor: pointer;
     font-size: 16px;
 }
+#btn-agregar-producto,
+#btn-modificar-producto{
+    display: block;
+    margin: 20px auto;
+}
 #listaAdmin{
     margin-top: 20px;
     padding: 15px;
