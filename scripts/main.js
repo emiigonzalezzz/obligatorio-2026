@@ -21,6 +21,10 @@ const btnLogout = document.getElementById("btnLogout");
 if (btnLogout){
     btnLogout.addEventListener("click", logout);
 }
+const btnAgregarProducto = document.getElementById("btn-agregar-producto");
+if (btnAgregarProducto){
+    btnAgregarProducto.addEventListener("click", agregarProducto);
+}
 const campoBusqueda = document.getElementById("buscarProducto")
 if (campoBusqueda){
     campoBusqueda.addEventListener("input", buscarProducto);
