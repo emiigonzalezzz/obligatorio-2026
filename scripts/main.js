@@ -1,4 +1,4 @@
-import{buscarProducto, filtrarPorPrecio} from "./productos.js";
+import{agregarProducto,buscarProducto, filtrarPorPrecio} from "./productos.js";
 import{ agregarCarrito, vaciarCarrito, finalizarCompra,cambiarCantidad,eliminarCarrito} from "./carrito.js";
 import{validateSession,logout,login} from "./authentication.js";
 import{ loginUsuario } from "./login.js";
