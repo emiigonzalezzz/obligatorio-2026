@@ -1,4 +1,4 @@
-import{agregarProducto,modificarProducto,buscarProducto, filtrarPorPrecio} from "./productos.js";
+import{agregarProducto,modificarProducto,eliminarProducto,buscarProducto, filtrarPorPrecio} from "./productos.js";
 import{ agregarCarrito, vaciarCarrito, finalizarCompra,cambiarCantidad,eliminarCarrito} from "./carrito.js";
 import{validateSession,logout,login} from "./authentication.js";
 import{ loginUsuario } from "./login.js";
@@ -86,4 +86,14 @@ if(btnProductos){
    btnProductos.addEventListener("click", function(){
    window.location.href = "productos.html";
  });
+}
+const listaAdmin = document.getElementById("listaAdmin");
+
+if (listaAdmin){
+    listaAdmin.addEventListener("click", function(event){
+if (event.target.classList.contains("btn-eliminar-admin")){
+const indice = Number(event.target.dataset.indice);
+eliminarProducto(indice);
+}
+});
 }
