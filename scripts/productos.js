@@ -16,17 +16,18 @@ limpiarAgregar();
 }
 
 function mostrarListaAdmin(){
-let lista = document.getElementById("listaAdmin");
-    if (lista == null) {
-    return;
+    let lista = document.getElementById("listaAdmin");
+    if (lista == null){
+        return;
     }
     lista.innerHTML = "";
-for (let i = 0; i < productos.length; i++) {
-	let precioFinal = calcularPrecioFinal(productos[i]);
+    for (let i = 0; i < productos.length; i++){
+    let precioFinal = calcularPrecioFinal(productos[i]);
     lista.innerHTML += `
-   <button class="btn-eliminar-admin" data-indice="${i}">Eliminar</button>
-`;
-}
+    <p>${productos[i].nombre} - $${precioFinal}
+    <button class="btn-eliminar-admin" data-indice="${i}">Eliminar</button></p>
+	`;
+ }
 }
 export function eliminarProducto(indice){
     productos.splice(indice, 1);
@@ -34,9 +35,6 @@ export function eliminarProducto(indice){
     mostrarListaAdmin();
     mostrarProductos();
 }
-    localStorage.setItem("productos", JSON.stringify(productos));
-    mostrarListaAdmin();
-    mostrarProductos();
 export function modificarProducto(){
 	let nombre = document.getElementById("nombreProducto").value;
     let nuevoNombre = document.getElementById("nuevoNombre").value;
