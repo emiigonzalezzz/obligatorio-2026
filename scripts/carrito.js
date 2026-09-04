@@ -1,3 +1,4 @@
+import {productos} from "./productos.js";
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 export function agregarCarrito(indice) {
     let producto = productos[indice];
