@@ -1,4 +1,4 @@
-import{agregarProducto,buscarProducto, filtrarPorPrecio} from "./productos.js";
+import{agregarProducto,modificarProducto,buscarProducto, filtrarPorPrecio} from "./productos.js";
 import{ agregarCarrito, vaciarCarrito, finalizarCompra,cambiarCantidad,eliminarCarrito} from "./carrito.js";
 import{validateSession,logout,login} from "./authentication.js";
 import{ loginUsuario } from "./login.js";
@@ -24,6 +24,10 @@ if (btnLogout){
 const btnAgregarProducto = document.getElementById("btn-agregar-producto");
 if (btnAgregarProducto){
     btnAgregarProducto.addEventListener("click", agregarProducto);
+}
+const btnModificarProducto = document.getElementById("btn-modificar-producto");
+if (btnModificarProducto){
+    btnModificarProducto.addEventListener("click", modificarProducto);
 }
 const campoBusqueda = document.getElementById("buscarProducto")
 if (campoBusqueda){
