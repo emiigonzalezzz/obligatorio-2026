@@ -24,16 +24,15 @@ let lista = document.getElementById("listaAdmin");
 for (let i = 0; i < productos.length; i++) {
 	let precioFinal = calcularPrecioFinal(productos[i]);
     lista.innerHTML += `
-    <p>${productos[i].nombre} - $${precioFinal}<button class="btn-eliminar-admin" onclick="eliminarProducto('${productos[i].nombre}')">Eliminar</button></p>
+   <button class="btn-eliminar-admin" data-indice="${i}">Eliminar</button>
 `;
 }
 }
-export function eliminarProducto(nombre){
-    for (let i = 0; i < productos.length; i++) {
-    if (productos[i].nombre == nombre) {
-    productos.splice(i, 1);
-    break;
-}
+export function eliminarProducto(indice){
+    productos.splice(indice, 1);
+    localStorage.setItem("productos", JSON.stringify(productos));
+    mostrarListaAdmin();
+    mostrarProductos();
 }
     localStorage.setItem("productos", JSON.stringify(productos));
     mostrarListaAdmin();
