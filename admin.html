@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrar productos</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="div-admin">
+    <h1>Panel de admin</h1>
+    <h2>Agregar producto</h2>
+	<form class="form-modificar">
+	<div class="campo">
+	<label>Nombre:</label>
+    <input type="text" id="nombre" placeholder="Nombre" required>
+	</div>
+	<div class="campo">
+	<label>Descripción:</label>
+    <input type="text" id="descripcion" placeholder="Descripción" required>
+	</div>
+	<div class="campo">
+	<label>Precio:</label>
+    <input type="number" id="precio" placeholder="Precio" required>
+	</div>
+	<div class="campo">
+    <label>Tipo de IVA:</label>
+    <select id="tipoIVA" required>
+    <option value="minimo">IVA mínimo</option>
+    <option value="basico">IVA básico</option>
+    <option value="ninguno">sin IVA</option>
+   </select>
+	</div>
+	<div class="campo">
+	<label>Stock:</label>
+    <input type="number" id="stock" placeholder="Stock" required>
+	</div>
+	<div class="campo">
+	<label>Imagen:</label>
+    <input type="text" id="imagen" placeholder="Ruta de la imagen" required>
+    </div>
+    <button type="button" class="btn-admin" onclick="agregarProducto()">Agregar producto</button>
+    </form>
+    <h2>Productos registrados</h2>
+    <div id="listaAdmin"></div>
+	<h2>Modificar producto</h2>
+	<form class="form-modificar">
+	<div class="campo">
+	<label>Nombre del producto:</label>
+	<input type="text" id="nombreProducto" placeholder="Nombre del producto a buscar">
+	</div>
+	<div class="campo">
+	<label>Nuevo nombre:</label>
+	<input type="text" id="nuevoNombre" placeholder="Nombre del producto a modificar">
+	</div>
+	<div class="campo">
+	<label>Nueva descripción :</label>
+	<input type="text" id="nuevaDescripcion" placeholder="Nueva descripción">
+	</div>
+	<div class="campo">
+	<label>Nuevo precio:</label>
+	<input type="number" id="nuevoPrecio" placeholder="Nuevo precio">
+	</div>
+	<div class="campo">
+    <label>Tipo de IVA:</label>
+    <select id="nuevoIVA">
+    <option value="minimo">IVA mínimo</option>
+    <option value="basico">IVA básico</option>
+    <option value="ninguno">sin IVA</option>
+   </select>
+	</div>
+	<div class="campo">
+	<label>Nuevo stock:</label>
+	<input type="number" id="nuevoStock" placeholder="Nuevo stock">
+	</div>
+	<div class="campo">
+	<label>Nueva imagen:</label>
+	<input type="text" id="nuevaImagen" placeholder="Nueva ruta de imagen">
+	</div>
+	<button type="button" class="btn-admin" onclick="modificarProducto()">Modificar producto</button>
+</form>
+<h2>Ventas realizadas</h2>
+<table border="1">
+<thead>
+<tr>
+    <th>Fecha</th>
+    <th>Comprador</th>
+    <th>Cant. Productos</th>
+    <th>Subtotal</th>
+    <th>IVA</th>
+    <th>Total</th>
+	<th>Accion</th>
+</tr>
+</thead>
+    <tbody id="tablaVentas"></tbody>
+</table>
+</div>
+	<button type="button" class="btn-irProductos" onclick="window.location.href='productos.html'">Ir Productos</button>
+
+   <script type="module" src="./scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<header class="logo-top">
+        <div class="logo">
+            <img src="img/logo2.png" alt="Logo SweetsGlamour">
+        </div>
+    </header>
+<body>
+<section class="inicio">
+    <h1>SweetsGlamour</h1>
+    <h2>Registro</h2>
+<form id="registerForm">
+    <label>Nombre:</label>
+    <input type="text" placeholder="Santino" id="nombre">
+
+    <label>Email:</label>
+    <input type="email" placeholder="ejemplo@correo.com" id="email">
+	
+    <label>Contraseña:</label>
+    <input type="password" placeholder="Minimo 8 caracteres" id="password" minlength="8" maxlength="15">
+	
+	<button type="submit" class="btn-admin">Registrar</button>
+</form>
+
+	<p>Ya tenes una cuenta?</p>
+	<a href="login.html">
+	<button class="btn-admin">Iniciar Sesion</button>
+    </a>
+</section>
+<script type="module" src="./scripts/main.js"></script>
+</body>
+</html>
