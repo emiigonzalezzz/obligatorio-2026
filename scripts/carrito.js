@@ -1,30 +1,33 @@
 import {productos} from "./productos.js";
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 export function agregarCarrito(indice) {
+    let carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
     let producto = productos[indice];
+    if (!producto){
+        alert("No se encontró el producto");
+        return;
+    }
     if (Number(producto.stock) <= 0){
         alert("Producto sin stock");
         return;
-}
-    let encontrado = carrito.find(function(item){
-    return item.producto.nombre == producto.nombre;
+    }
+    let encontrado = carritoActual.find(function(item){
+        return item.producto.nombre == producto.nombre;
 });
     if (encontrado){
-    if(encontrado.cantidad < Number(producto.stock)){
-      encontrado.cantidad++;
-}else{
-      alert("No hay más stock disponible");
-      return;
+    if (encontrado.cantidad < Number(producto.stock)){
+        encontrado.cantidad++;
+    }else{
+        alert("No hay más stock disponible");
+        return;
+ }
+    }else{
+        carritoActual.push({
+        producto: producto,
+        cantidad: 1
+    });
 }
-
-}else{
-      carrito.push({
-      producto: producto,
-      cantidad: 1
-});
-
-}
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("carrito", JSON.stringify(carritoActual));
     alert("Producto agregado al carrito");
 }
 
