@@ -70,7 +70,7 @@ if (document.getElementById("productos")){
 	verificarAdministrador();
 };
 
-function calcularPrecioFinal(producto){
+export function calcularPrecioFinal(producto){
     let precio = Number(producto.precio);
     let iva = 0;
     if(producto.iva == "minimo"){
