@@ -3,96 +3,65 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 export function agregarCarrito(indice) {
     let carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
     let producto = productos[indice];
-    if (!producto){
+    if (!producto) {
         alert("No se encontró el producto");
         return;
-    }
-    if (Number(producto.stock) <= 0){
+}
+    if (Number(producto.stock) <= 0) {
         alert("Producto sin stock");
         return;
-    }
-    let encontrado = carritoActual.find(function(item){
+}
+    let encontrado = carritoActual.find(function(item) {
         return item.producto.nombre == producto.nombre;
 });
-    if (encontrado){
-    if (encontrado.cantidad < Number(producto.stock)){
+    if (encontrado) {
+    if (encontrado.cantidad < Number(producto.stock)) {
         encontrado.cantidad++;
-    }else{
+}else{
         alert("No hay más stock disponible");
         return;
- }
-    }else{
+}
+}else{
         carritoActual.push({
         producto: producto,
         cantidad: 1
-    });
+});
 }
     localStorage.setItem("carrito", JSON.stringify(carritoActual));
     alert("Producto agregado al carrito");
 }
 
-function mostrarCarrito(){
-    carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+function mostrarCarrito() {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     let lista = document.getElementById("listaCarrito");
-    if (lista == null){
+    if (!lista){
         return;
 }
     lista.innerHTML = "";
-    let subtotalGeneral = 0;
-    let ivaGeneral = 0;
-    let totalGeneral = 0;
-    for (let i = 0; i < carrito.length; i++){
-        let item = carrito[i];
-        let precioBase = Number(item.producto.precio);
-		let ivaPorcentaje;
-	if(item.producto.iva == "minimo"){
-    ivaPorcentaje = 0.10;
-}else if (item.producto.iva == "basico"){
-    ivaPorcentaje = 0.22;
-}else if(item.producto.iva == "sin iva"){
-    ivaPorcentaje = 0;
-}else{
-	ivaPorcentaje = 0;
+    if (carrito.length === 0) {
+        lista.innerHTML = "<p>El carrito está vacío.</p>";
+        return;
 }
-    let ivaUnitario = precioBase * ivaPorcentaje;
-    let precioFinal = precioBase + ivaUnitario;
-    let subtotal = precioBase * item.cantidad;
-	let iva = ivaUnitario * item.cantidad;
-    let totalProducto = precioFinal * item.cantidad;
-        subtotalGeneral += subtotal;
-        ivaGeneral += iva;
-        totalGeneral += totalProducto;
-        lista.innerHTML += `
-        <div class="producto-carrito">
-            <img src="${item.producto.imagen}" alt="${item.producto.nombre}" width="120">
-            <h3>${item.producto.nombre}</h3>
-            <p>Stock disponible: ${item.producto.stock}</p>
-            <input type="number" class="cantidad-carrito" min="1" max="${item.producto.stock}" value="${item.cantidad}" data-indice="${i}">
-            <p>Precio c/u: $${precioBase.toFixed(2)}</p>
-            <p>IVA: $${ivaUnitario.toFixed(2)}</p>
-            <p class="total-producto">Total producto: $${totalProducto.toFixed(2)}</p>
-            <button class="btn-eliminar-carrito" data-indice="${i}">Eliminar</button>
-        </div>
- `;
+    carrito.forEach(function(item, indice) {
+    let producto = item.producto;
+    let cantidad = item.cantidad;
+    let precio = calcularPrecioFinal(producto);
+    let subtotal = precio * cantidad;
+    lista.innerHTML += `
+    <div class="producto-carrito">
+    <img src="${producto.imagen}" alt="${producto.nombre}">
+    <div>
+    <h3>${producto.nombre}</h3>
+    <p>${producto.descripcion}</p>
+    <p>Precio: $${precio}</p>
+    <p>Cantidad: ${cantidad}</p>
+    <p>Subtotal: $${subtotal}</p>
+    <button onclick="eliminarDelCarrito(${indice})">Eliminar</button>
+    </div>
+    </div>
+    `;
+});
 }
-    let totalElemento = document.getElementById("total");
-    if (totalElemento) {
-        totalElemento.innerHTML = `
-            <p>Subtotal: $${subtotalGeneral.toFixed(2)}</p>
-            <p>IVA: $${ivaGeneral.toFixed(2)}</p>
-            <h3>Total: $${totalGeneral.toFixed(2)}</h3>
- `;
-}
-    let botonComprar = document.getElementById("btn-comprar");
-    if (botonComprar){
-    if (carrito.length == 0) {
-        botonComprar.style.display = "none";
-}else{
-        botonComprar.style.display = "inline-block";
-}
-}
-}
-
 export function cambiarCantidad(indice, cantidad){
     cantidad = Number(cantidad);
     if (cantidad < 1){
