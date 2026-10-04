@@ -1,22 +1,23 @@
 import {productos} from "./productos.js";
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-export function agregarCarrito(indice) {
+
+export function agregarCarrito(indice){
     let carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
     let producto = productos[indice];
-    if (!producto) {
+    if (!producto){
         alert("No se encontró el producto");
         return;
 }
-    if (Number(producto.stock) <= 0) {
-        alert("Producto sin stock");
+    if (Number(producto.stock) <= 0){
+    	alert("Producto sin stock");
         return;
 }
-    let encontrado = carritoActual.find(function(item) {
+    let encontrado = carritoActual.find(function(item){
         return item.producto.nombre == producto.nombre;
 });
-    if (encontrado) {
-    if (encontrado.cantidad < Number(producto.stock)) {
-        encontrado.cantidad++;
+    if (encontrado){
+        if (encontrado.cantidad < Number(producto.stock)){
+            encontrado.cantidad++;
 }else{
         alert("No hay más stock disponible");
         return;
@@ -26,6 +27,7 @@ export function agregarCarrito(indice) {
         producto: producto,
         cantidad: 1
 });
+
 }
     localStorage.setItem("carrito", JSON.stringify(carritoActual));
     alert("Producto agregado al carrito");
@@ -34,7 +36,7 @@ export function agregarCarrito(indice) {
 function mostrarCarrito() {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     let lista = document.getElementById("listaCarrito");
-    if (!lista){
+    if (!lista) {
         return;
 }
     lista.innerHTML = "";
@@ -43,25 +45,29 @@ function mostrarCarrito() {
         return;
 }
     carrito.forEach(function(item, indice) {
-    let producto = item.producto;
-    let cantidad = item.cantidad;
-    let precio = calcularPrecioFinal(producto);
-    let subtotal = precio * cantidad;
-    lista.innerHTML += `
-    <div class="producto-carrito">
-    <img src="${producto.imagen}" alt="${producto.nombre}">
-    <div>
-    <h3>${producto.nombre}</h3>
-    <p>${producto.descripcion}</p>
-    <p>Precio: $${precio}</p>
-    <p>Cantidad: ${cantidad}</p>
-    <p>Subtotal: $${subtotal}</p>
-    <button onclick="eliminarDelCarrito(${indice})">Eliminar</button>
-    </div>
-    </div>
-    `;
+        let producto = item.producto;
+        let cantidad = item.cantidad;
+        let precio = calcularPrecioFinal(producto);
+        let subtotal = precio * cantidad;
+        lista.innerHTML += `
+            <div class="producto-carrito">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <div>
+            <h3>${producto.nombre}</h3>
+            <p>${producto.descripcion}</p>
+            <p>Precio: $${precio}</p>
+            <p>Cantidad: ${cantidad}</p>
+            <p>Subtotal: $${subtotal}</p>
+            <button onclick="eliminarDelCarrito(${indice})">Eliminar</button>
+            </div>
+            </div>
+`;
 });
 }
+if (document.getElementById("listaCarrito")) {
+    mostrarCarrito();
+}
+
 export function cambiarCantidad(indice, cantidad){
     cantidad = Number(cantidad);
     if (cantidad < 1){
