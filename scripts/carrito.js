@@ -114,65 +114,75 @@ export function vaciarCarrito(){
 }
 
 export function finalizarCompra(){
+    let usuario = JSON.parse(localStorage.getItem("usuarioActivo"));
+    if (usuario == null){
+        alert("Debes iniciar sesión para finalizar la compra");
+        window.location.href = "login.html";
+        return;
+    }
     let productos = JSON.parse(localStorage.getItem("productos")) || [];
     for (let i = 0; i < carrito.length; i++){
-    let item = carrito[i];
-    for(let j = 0; j < productos.length; j++){
-    if(productos[j].nombre == item.producto.nombre){
-    if(item.cantidad > Number(productos[j].stock)){
-    alert("No hay stock suficiente para " + productos[j].nombre);
-    return;
+        let item = carrito[i];
+        for (let j = 0; j < productos.length; j++){
+        if (productos[j].nombre == item.producto.nombre){
+        if (item.cantidad > Number(productos[j].stock)){
+            alert("No hay stock suficiente de " + productos[j].nombre);
+            return;
+	}
+            break;
+		}
+	}
 }
-    productos[j].stock = Number(productos[j].stock) - item.cantidad;
-    break;
+    for (let i = 0; i < carrito.length; i++){
+        let item = carrito[i];
+        for (let j = 0; j < productos.length; j++){
+        if (productos[j].nombre == item.producto.nombre){
+        	productos[j].stock = Number(productos[j].stock) - item.cantidad;
+            break;
+        }
+    }
 }
-}
-}
-localStorage.setItem("productos", JSON.stringify(productos));
-
+    localStorage.setItem("productos", JSON.stringify(productos));
     let ventas = JSON.parse(localStorage.getItem("ventas")) || [];
-    let usuario = JSON.parse(localStorage.getItem("usuarioActivo"));
     let cantidadProductos = 0;
     let subtotal = 0;
     let ivaTotal = 0;
     let total = 0;
-
     for (let i = 0; i < carrito.length; i++){
-    let item = carrito[i];
-    cantidadProductos += item.cantidad;
-    let precioBase = Number(item.producto.precio);
-    let ivaPorcentaje;
-if (item.producto.iva == "minimo"){
-    ivaPorcentaje = 0.10;
-}else if(item.producto.iva == "basico"){
-    ivaPorcentaje = 0.22;
-}else if (item.producto.iva == "sin iva"){
-    ivaPorcentaje = 0;
-}else{
-	ivaPorcentaje = 0;
+        let item = carrito[i];
+        cantidadProductos += item.cantidad;
+        let precioBase = Number(item.producto.precio);
+        let ivaPorcentaje;
+        if (item.producto.iva == "minimo"){
+            ivaPorcentaje = 0.10;
+        }
+        else if (item.producto.iva == "basico"){
+            ivaPorcentaje = 0.22;
+        }
+        else if (item.producto.iva == "sin iva"){
+            ivaPorcentaje = 0;
+		}
+        else{
+            ivaPorcentaje = 0;
 }
-    let ivaUnitario = precioBase * ivaPorcentaje;
-    let subtotalProducto = precioBase * item.cantidad;
-    let ivaProducto = ivaUnitario * item.cantidad;
-    let totalProducto = subtotalProducto + ivaProducto;
-    subtotal += subtotalProducto;
-    ivaTotal += ivaProducto;
-    total += totalProducto;
-}
-    ventas.push({
-    fecha: new Date().toLocaleString(),
-    comprador: usuario.nombre,
-    cantidadProductos: cantidadProductos,
-    subtotal: subtotal,
-    iva: ivaTotal,
-    total: total
 
+        let subtotalProducto = precioBase * item.cantidad;
+		let ivaProducto = precioBase * ivaPorcentaje * item.cantidad;
+        let totalProducto = subtotalProducto + ivaProducto;
+        subtotal += subtotalProducto;
+        ivaTotal += ivaProducto;
+        total += totalProducto;
+}
+    ventas.push({fecha: new Date().toLocaleString(),
+        comprador: usuario.nombre,
+        cantidadProductos: cantidadProductos,
+        subtotal: subtotal,
+        iva: ivaTotal,
+        total: total
 });
-localStorage.setItem("ventas", JSON.stringify(ventas));
-carrito = [];
-localStorage.setItem("carrito", JSON.stringify(carrito));
-alert("Compra realizada correctamente");
-mostrarCarrito();
+    localStorage.setItem("ventas", JSON.stringify(ventas));
+    carrito = [];
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    alert("Compra realizada correctamente");
+    mostrarCarrito();
 }
-
-mostrarCarrito();
