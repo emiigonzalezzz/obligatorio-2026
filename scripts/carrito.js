@@ -58,7 +58,7 @@ function mostrarCarrito() {
             <p>Precio: $${precio}</p>
             <p>Cantidad: ${cantidad}</p>
             <p>Subtotal: $${subtotal}</p>
-            <button onclick="eliminarDelCarrito(${indice})">Eliminar</button>
+            <button class="btn-eliminar-carrito" data-indice="${indice}">Eliminar</button>
             </div>
             </div>
 `;
