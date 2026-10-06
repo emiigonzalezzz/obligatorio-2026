@@ -56,8 +56,8 @@ function mostrarCarrito() {
             <h3>${producto.nombre}</h3>
             <p>${producto.descripcion}</p>
             <p>Precio: $${precio}</p>
-            <p>Cantidad:</p>
-			<input type="number" class="cantidad-carrito" data-indice="${indice}"value="${cantidad} "min="1" max="${producto.stock}">
+			<p>Cantidad:</p>
+			<input type="number" class="cantidad-carrito" data-indice="${indice}"value="${cantidad}"min="1"max="${producto.stock}">
             <p>Subtotal: $${subtotal}</p>
             <button class="btn-eliminar-carrito" data-indice="${indice}">Eliminar</button>
             </div>
@@ -70,17 +70,19 @@ if (document.getElementById("listaCarrito")) {
 }
 
 export function cambiarCantidad(indice, cantidad){
+    let carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
     cantidad = Number(cantidad);
     if (cantidad < 1){
         cantidad = 1;
+    }
+    if (cantidad > Number(carritoActual[indice].producto.stock)){
+        cantidad = Number(carritoActual[indice].producto.stock);
 }
-    if (cantidad > Number(carrito[indice].producto.stock)){
-        cantidad = Number(carrito[indice].producto.stock);
-}
-    carrito[indice].cantidad = cantidad;
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    carritoActual[indice].cantidad = cantidad;
+    localStorage.setItem("carrito", JSON.stringify(carritoActual));
     mostrarCarrito();
 }
+
 export function eliminarCarrito(indice) {
     carrito.splice(indice, 1);
     localStorage.setItem("carrito", JSON.stringify(carrito));
