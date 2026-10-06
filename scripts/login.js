@@ -37,7 +37,7 @@ export function loginUsuario() {
     if (volverAlCarrito === "true"){
         localStorage.removeItem("volverAlCarrito");
         window.location.href = "carrito.html";
-    }else if{
+    }else{
         window.location.href = "productos.html";
 	}else{
         alert("Correo o contraseña incorrecto");
