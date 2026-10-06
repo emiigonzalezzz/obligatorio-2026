@@ -35,8 +35,9 @@ function mostrarListaAdmin(){
     let precioFinal = calcularPrecioFinal(productos[i]);
     lista.innerHTML += `
     <p>${productos[i].nombre} - $${precioFinal}
-    <button class="btn-eliminar-admin" data-indice="${i}">Eliminar</button></p>
+    <button class="btn-eliminar-admin" data-indice="${i}">Eliminar</button>
 	<button class="btn-modificar-admin" data-indice="${i}">Modificar</button>
+	</p>
 	`;
 }
 }
