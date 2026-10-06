@@ -99,6 +99,10 @@ export function finalizarCompra(){
     window.location.href = "login.html";
     return;
 }
+	if (carrito.length === 0){
+        alert("El carrito está vacío");
+        return;
+}
     let productos = JSON.parse(localStorage.getItem("productos")) || [];
     for (let i = 0; i < carrito.length; i++){
         let item = carrito[i];
