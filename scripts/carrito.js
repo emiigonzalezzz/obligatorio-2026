@@ -76,7 +76,6 @@ if (document.getElementById("listaCarrito")){
 }
 
 export function cambiarCantidad(indice, cantidad){
-	console.log("ESTOY USANDO EL CARRITO NUEVO");
    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     if (!carrito[indice]){
         return;
