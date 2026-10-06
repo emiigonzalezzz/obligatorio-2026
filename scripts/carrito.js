@@ -94,10 +94,11 @@ export function vaciarCarrito(){
 export function finalizarCompra(){
     let usuario = JSON.parse(localStorage.getItem("usuarioActivo"));
     if (usuario == null){
-        alert("Debes iniciar sesión para finalizar la compra");
-        window.location.href = "login.html";
-        return;
-    }
+    alert("Debes iniciar sesión para finalizar la compra");
+    localStorage.setItem("volverAlCarrito", "true");
+    window.location.href = "login.html";
+    return;
+}
     let productos = JSON.parse(localStorage.getItem("productos")) || [];
     for (let i = 0; i < carrito.length; i++){
         let item = carrito[i];
