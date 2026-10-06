@@ -331,14 +331,14 @@ input::placeholder {
     font-size: 26px;
 }
 .btn-modificar-admin {
-    background-color: #343434;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 12px;
-    font-size: 20px;
-    font-weight: bold;
+    margin-left: auto;
+    width: 180px;
+    height: 45px;
+    border-radius: 25px;
+    border: 2px solid #333;
+    background: white;
     cursor: pointer;
+    font-size: 26px;
 }
 .contenedor-filtros{
     display: flex;
