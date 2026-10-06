@@ -1,36 +1,35 @@
 export let productos = JSON.parse(localStorage.getItem("productos")) || [];
 export function agregarProducto(){
-
-let nombre = document.getElementById("nombre").value.trim();
-let descripcion = document.getElementById("descripcion").value.trim();
-let precio = document.getElementById("precio").value;
-let iva = document.getElementById("tipoIVA").value;
-let stock = document.getElementById("stock").value;
-let imagen = document.getElementById("imagen").value.trim();
-if (nombre == "" || descripcion == "" || precio == "" || stock == "" || imagen == ""){
-    alert("Debe completar todos los campos");
-    return;
+    let nombre = document.getElementById("nombre").value.trim();
+    let descripcion = document.getElementById("descripcion").value.trim();
+    let precio = document.getElementById("precio").value;
+    let iva = document.getElementById("tipoIVA").value;
+    let stock = document.getElementById("stock").value;
+    let imagen = document.getElementById("imagen").value.trim();
+    if(nombre == "" || descripcion == "" || precio == "" || stock == "" || imagen == ""){
+        alert("Debe completar todos los campos");
+        return;
 }
-let producto = {
-    nombre: nombre,
-    descripcion: descripcion,
-    precio: precio,
-    iva: iva,
-    stock: stock,
-    imagen: imagen
+    let producto = {
+        nombre: nombre,
+        descripcion: descripcion,
+        precio: precio,
+        iva: iva,
+        stock: stock,
+        imagen: imagen
 };
-productos.push(producto);
-localStorage.setItem("productos", JSON.stringify(productos));
-mostrarListaAdmin();
-mostrarProductos();
-limpiarAgregar();
+    productos.push(producto);
+    localStorage.setItem("productos", JSON.stringify(productos));
+    mostrarListaAdmin();
+    mostrarProductos();
+    limpiarAgregar();
 }
 
 function mostrarListaAdmin(){
     let lista = document.getElementById("listaAdmin");
     if (lista == null){
         return;
-    }
+}
     lista.innerHTML = "";
     for (let i = 0; i < productos.length; i++){
     let precioFinal = calcularPrecioFinal(productos[i]);
@@ -38,7 +37,7 @@ function mostrarListaAdmin(){
     <p>${productos[i].nombre} - $${precioFinal}
     <button class="btn-eliminar-admin" data-indice="${i}">Eliminar</button></p>
 	`;
- }
+}
 }
 export function eliminarProducto(indice){
     productos.splice(indice, 1);
@@ -64,19 +63,19 @@ export function modificarProducto(){
 			productos[i].stock = stock;
             productos[i].imagen = imagen;
     break;
- }
+}
 }
 localStorage.setItem("productos", JSON.stringify(productos));
 mostrarListaAdmin();
 mostrarProductos();
 limpiarModificar();
 }
-if (document.getElementById("listaAdmin")){
+if(document.getElementById("listaAdmin")){
     mostrarListaAdmin();
 	mostrarVentas();
 }
 
-if (document.getElementById("productos")){
+if(document.getElementById("productos")){
     mostrarProductos();
 	verificarAdministrador();
 };
@@ -86,10 +85,9 @@ export function calcularPrecioFinal(producto){
     let iva = 0;
     if(producto.iva == "minimo"){
         iva = 0.10;
-    }else if(producto.iva == "basico") {
+    }else if(producto.iva == "basico"){
         iva = 0.22;	
-}
-else {
+}else{
 	iva = 0;
 }
     return Math.round(precio + (precio * iva));
