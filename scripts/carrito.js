@@ -39,16 +39,18 @@ function mostrarCarrito() {
     if (!lista) {
         return;
 }
-    lista.innerHTML = "";
-    if (carrito.length === 0) {
-        lista.innerHTML = "<p>El carrito está vacío.</p>";
-        return;
+lista.innerHTML = "";
+let total = 0;
+if (carrito.length === 0) {
+    lista.innerHTML = "<p>El carrito está vacío.</p>";
+    return;
 }
-    carrito.forEach(function(item, indice) {
+    carrito.forEach(function(item, indice){
         let producto = item.producto;
         let cantidad = item.cantidad;
         let precio = calcularPrecioFinal(producto);
         let subtotal = precio * cantidad;
+		total += subtotal;
         lista.innerHTML += `
             <div class="producto-carrito">
             <img src="${producto.imagen}" alt="${producto.nombre}">
@@ -64,8 +66,12 @@ function mostrarCarrito() {
             </div>
 `;
 });
+	const totalElemento = document.getElementById("total");
+if (totalElemento) {
+    totalElemento.textContent = `Total: $${total}`;
 }
-if (document.getElementById("listaCarrito")) {
+}
+if (document.getElementById("listaCarrito")){
     mostrarCarrito();
 }
 
