@@ -39,6 +39,7 @@ export function loginUsuario() {
         window.location.href = "carrito.html";
     }else{
         window.location.href = "productos.html";
+	}
 	}else{
         alert("Correo o contraseña incorrecto");
     }
