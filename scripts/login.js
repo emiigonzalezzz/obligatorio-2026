@@ -31,11 +31,17 @@ export function loginUsuario() {
      }
   }
     if(usuarioEncontrado){
-        localStorage.setItem("usuarioActivo",JSON.stringify(usuarioEncontrado));
-        alert("Bienvenido " + usuarioEncontrado.nombre);
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
+    alert("Bienvenido " + usuarioEncontrado.nombre);
+    let volverAlCarrito = localStorage.getItem("volverAlCarrito");
+    if (volverAlCarrito === "true"){
+        localStorage.removeItem("volverAlCarrito");
+        window.location.href = "carrito.html";
+    }else{
         window.location.href = "productos.html";
- }
-    else{
+	}else{
         alert("Correo o contraseña incorrecto");
     }
 }
+
+		
