@@ -39,6 +39,15 @@ if (btnLogout){
     btnLogout.addEventListener("click", logout);
 }
 
+const usuarioActual = JSON.parse(localStorage.getItem("usuarioActivo"));
+if (document.getElementById("listaAdmin")){
+if (!usuarioActual || usuarioActual.rol !== "administrador"){
+    alert("No tenés permiso para acceder al panel de administración");
+    window.location.href = "productos.html";
+}
+
+}
+
 const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
 if (usuarioActivo){
     if (btnLogin){
