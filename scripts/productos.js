@@ -1,13 +1,24 @@
 export let productos = JSON.parse(localStorage.getItem("productos")) || [];
 export function agregarProducto(){
-let producto ={
-     nombre: document.getElementById("nombre").value,
-     descripcion: document.getElementById("descripcion").value,
-     precio: document.getElementById("precio").value,
-	 iva: document.getElementById("tipoIVA").value,
-	 stock: document.getElementById("stock").value,
-     imagen: document.getElementById("imagen").value
- };
+
+let nombre = document.getElementById("nombre").value.trim();
+let descripcion = document.getElementById("descripcion").value.trim();
+let precio = document.getElementById("precio").value;
+let iva = document.getElementById("tipoIVA").value;
+let stock = document.getElementById("stock").value;
+let imagen = document.getElementById("imagen").value.trim();
+if (nombre == "" || descripcion == "" || precio == "" || stock == "" || imagen == ""){
+    alert("Debe completar todos los campos");
+    return;
+}
+let producto = {
+    nombre: nombre,
+    descripcion: descripcion,
+    precio: precio,
+    iva: iva,
+    stock: stock,
+    imagen: imagen
+};
 productos.push(producto);
 localStorage.setItem("productos", JSON.stringify(productos));
 mostrarListaAdmin();
