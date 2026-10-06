@@ -70,16 +70,20 @@ if (document.getElementById("listaCarrito")) {
 }
 
 export function cambiarCantidad(indice, cantidad){
-    let carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
+    let carrito = obtenerCarrito();
+    if (!carrito[indice]){
+        return;
+}
     cantidad = Number(cantidad);
     if (cantidad < 1){
         cantidad = 1;
-    }
-    if (cantidad > Number(carritoActual[indice].producto.stock)){
-        cantidad = Number(carritoActual[indice].producto.stock);
 }
-    carritoActual[indice].cantidad = cantidad;
-    localStorage.setItem("carrito", JSON.stringify(carritoActual));
+    let stock = Number(carrito[indice].producto.stock);
+    if (cantidad > stock){
+        cantidad = stock;
+}
+    carrito[indice].cantidad = cantidad;
+    guardarCarrito(carrito);
     mostrarCarrito();
 }
 
