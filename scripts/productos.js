@@ -81,7 +81,7 @@ export function calcularPrecioFinal(producto){
 else {
 	iva = 0;
 }
-    return precio + (precio * iva);
+    return Math.round(precio + (precio * iva));
 }
 function mostrarProductos(){
     let contenedor = document.getElementById("productos");
