@@ -89,7 +89,7 @@ export function cambiarCantidad(indice, cantidad){
         cantidad = stock;
 }
     carrito[indice].cantidad = cantidad;
-    guardarCarrito(carrito);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito();
 }
 
