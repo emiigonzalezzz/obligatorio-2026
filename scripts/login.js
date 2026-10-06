@@ -22,7 +22,7 @@ export function loginUsuario(){
         return;
     }
     for (let i = 0; i < usuarios.length; i++){
-        if (usuarios[i].email === email && usuarios[i].password === password){
+        if (usuarios[i].email === email && usuarios[i].password === password) {
             usuarioEncontrado = usuarios[i];
             break;
 }
@@ -37,7 +37,7 @@ export function loginUsuario(){
 }else{
             window.location.href = "productos.html";
 }
-} else {
+}else{
         alert("Correo o contraseña incorrecto");
 }
 }
