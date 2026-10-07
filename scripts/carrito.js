@@ -105,6 +105,7 @@ export function vaciarCarrito(){
 }
 
 export function finalizarCompra(){
+    carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     let usuario = JSON.parse(localStorage.getItem("usuarioActivo"));
     if (usuario == null){
     alert("Debes iniciar sesión para finalizar la compra");
