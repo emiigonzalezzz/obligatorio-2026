@@ -182,7 +182,7 @@ let ventas = JSON.parse(localStorage.getItem("ventas")) || [];
  <td>${ventas[i].comprador}</td>
  <td>${ventas[i].cantidadProductos}</td>
  <td>$${ventas[i].subtotal}</td>
- <td>$${ventas[i].iva}</td>
+ <td>$${Math.round(ventas[i].iva)}</td>
  <td>$${ventas[i].total}</td>
  <td class="accion">
  <button class="btn-carrito btn-eliminar-venta" data-indice="${i}">Eliminar</button>
