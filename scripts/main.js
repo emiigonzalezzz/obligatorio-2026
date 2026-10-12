@@ -5,7 +5,7 @@ import{loginUsuario} from "./login.js";
 import{registerUsuario} from "./register.js";
 
 const loginForm = document.getElementById("loginForm");
-if (loginForm) {
+if (loginForm){ 
     loginForm.addEventListener("submit", function(event) {
     event.preventDefault();
     loginUsuario();
