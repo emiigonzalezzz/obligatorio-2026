@@ -39,7 +39,7 @@ export function iniciarModificacion(indice){
     let producto = productos[indice];
     if (!producto) {
         return;
-    }
+}
     indiceProductoEditando = indice;
     document.getElementById("nombre").value = producto.nombre;
     document.getElementById("descripcion").value = producto.descripcion;
