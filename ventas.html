@@ -2,41 +2,28 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ventas realizadas - SweetsGlamour</title>
+    <title>Ventas realizadas</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="div-admin pagina-ventas">
-        <h1>Ventas realizadas</h1>
-        <p class="descripcion-ventas">Historial de compras realizadas en SweetsGlamour.</p>
-        <div class="resumen-ventas">
-        <div class="tarjeta-venta">
-        <h3>Total de ventas</h3>
-        <p id="totalVentas">0</p>
-        </div>
-        <div class="tarjeta-venta">
-        <h3>Ingresos totales</h3>
-        <p id="ingresosVentas">$0</p>
-        </div>
-        </div>
-        <div class="tabla-ventas">
-        <table>
-            <thead>
-                <tr>
-                <th>Fecha</th>
-                <th>Comprador</th>
-                <th>Cant. productos</th>
-                <th>Subtotal</th>
-                <th>IVA</th>
-                <th>Total</th>
-                <th>Acción</th>
-                </tr>
-            </thead>
-            <tbody id="tablaVentas"></tbody>
-            </table>
-        </div>
-        <button type="button" class="btn-irProductos" id="btn-admin">Volver al panel de administración</button>
-    </div>
-    <script type="module" src="./scripts/main.js"></script>
+    <h1>Panel de ventas</h1>
+    <h2>Ventas realizadas</h2>
+    <table border="1">
+        <thead>
+        <tr>
+        <th>Fecha</th>
+            <th>Comprador</th>
+            <th>Cant. Productos</th>
+            <th>Subtotal</th>
+            <th>IVA</th>
+            <th>Total</th>
+            <th>Acción</th>
+        </tr>
+        </thead>
+        <tbody id="tablaVentas"></tbody>
+    </table>
+    <br>
+    <button type="button" class="btn-general" onclick="window.location.href='admin.html'">Volver al panel de administración</button>
+    <script type="module" src="scripts/main.js"></script>
 </body>
 </html>
