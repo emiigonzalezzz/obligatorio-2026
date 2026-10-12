@@ -168,3 +168,16 @@ if (event.target.classList.contains("btn-eliminar-venta")){
 }
 });
 }
+
+const btnVerVentas = document.getElementById("btn-ver-ventas");
+if (btnVerVentas){
+    btnVerVentas.addEventListener("click", function(){
+    window.location.href = "ventas.html";
+});
+}
+const btnVolverAdmin = document.getElementById("btn-admin");
+if (btnVolverAdmin){
+    btnVolverAdmin.addEventListener("click", function(){
+    window.location.href = "admin.html";
+});
+}
