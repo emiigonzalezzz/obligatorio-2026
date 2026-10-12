@@ -54,6 +54,14 @@ export function iniciarModificacion(indice){
     });
 }
 
+export function cancelarModificacion(){
+    indiceProductoEditando = null;
+    limpiarAgregar();
+    document.getElementById("btn-agregar-producto").textContent = "Agregar producto";
+    document.getElementById("btn-cancelar-modificacion").hidden = true;
+}
+
+
 function mostrarListaAdmin(){
     let lista = document.getElementById("listaAdmin");
     if (lista == null){
