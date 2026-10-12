@@ -212,7 +212,7 @@ export function filtrarPorPrecio(){
 }
   mostrarProductos(); 
 }
-function mostrarVentas(){
+export function mostrarVentas(){
     let tabla = document.getElementById("tablaVentas");
     if(tabla == null){
         return;
