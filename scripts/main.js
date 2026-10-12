@@ -71,6 +71,11 @@ if (btnModificarProducto){
     btnModificarProducto.addEventListener("click", modificarProducto);
 }
 
+const btnCancelarModificacion = document.getElementById("btn-cancelar-modificacion");
+if (btnCancelarModificacion){
+    btnCancelarModificacion.addEventListener("click",cancelarModificacion);
+}
+
 const campoBusqueda = document.getElementById("buscarProducto");
 if (campoBusqueda){
     campoBusqueda.addEventListener("input", buscarProducto);
