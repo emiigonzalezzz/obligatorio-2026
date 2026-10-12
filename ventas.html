@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas realizadas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="div-admin">
+        <h1>Ventas realizadas</h1>
+        <p>Historial de compras realizadas en SweetsGlamour.</p>
+        <div class="tabla-ventas">
+        <table>
+        <thead>
+        <tr>
+        	<th>Fecha</th>
+        	<th>Comprador</th>
+       		<th>Cant. productos</th>
+        	<th>Subtotal</th>
+        	<th>IVA</th>
+        	<th>Total</th>
+        	<th>Acción</th>
+        </tr>
+        </thead>
+        <tbody id="tablaVentas"></tbody>
+            </table>
+        </div>
+        <button type="button" class="btn-irProductos" id="btn-admin">
+            Volver al panel de administración
+        </button>
+    </div>
+    <script type="module" src="./scripts/main.js"></script>
+</body>
+</html>
+
