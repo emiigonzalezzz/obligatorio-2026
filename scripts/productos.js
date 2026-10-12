@@ -116,11 +116,12 @@ mostrarListaAdmin();
 mostrarProductos();
 limpiarModificar();
 }
-if(document.getElementById("listaAdmin")){
+if (document.getElementById("listaAdmin")) {
     mostrarListaAdmin();
-	mostrarVentas();
 }
-
+if (document.getElementById("tablaVentas")) {
+    mostrarVentas();
+}
 if(document.getElementById("productos")){
     mostrarProductos();
 	verificarAdministrador();
