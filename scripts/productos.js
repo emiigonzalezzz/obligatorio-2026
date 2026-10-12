@@ -1,29 +1,57 @@
 export let productos = JSON.parse(localStorage.getItem("productos")) || [];
 let indiceProductoEditando = null;
+
 export function agregarProducto(){
-    let nombre = document.getElementById("nombre").value.trim();
-    let descripcion = document.getElementById("descripcion").value.trim();
-    let precio = document.getElementById("precio").value;
-    let iva = document.getElementById("tipoIVA").value;
-    let stock = document.getElementById("stock").value;
-    let imagen = document.getElementById("imagen").value.trim();
-    if(nombre == "" || descripcion == "" || precio == "" || stock == "" || imagen == ""){
-        alert("Debe completar todos los campos");
-        return;
+let nombre = document.getElementById("nombre").value.trim();
+let descripcion = document.getElementById("descripcion").value.trim();
+let precio = document.getElementById("precio").value;
+let iva = document.getElementById("tipoIVA").value;
+let stock = document.getElementById("stock").value;
+let imagen = document.getElementById("imagen").value.trim();
+if (nombre === "" || descripcion === "" ||
+    precio === "" || stock === "" || imagen === ""){
+    alert("Debe completar todos los campos");
+    return;
 }
-    let producto = {
-        nombre: nombre,
-        descripcion: descripcion,
-        precio: precio,
-        iva: iva,
-        stock: stock,
-        imagen: imagen
+let producto ={
+    nombre: nombre,
+    descripcion: descripcion,
+    precio: precio,
+    iva: iva,
+    stock: stock,
+    imagen: imagen
 };
-    productos.push(producto);
+if (indiceProductoEditando === null){
+        productos.push(producto);
+}else{
+    productos[indiceProductoEditando] = producto;
+}
     localStorage.setItem("productos", JSON.stringify(productos));
+    indiceProductoEditando = null;
+    limpiarAgregar();
+    document.getElementById("btn-agregar-producto").textContent = "Agregar producto";
+    document.getElementById("btn-cancelar-modificacion").hidden = true;
     mostrarListaAdmin();
     mostrarProductos();
-    limpiarAgregar();
+}
+export function iniciarModificacion(indice){
+    let producto = productos[indice];
+    if (!producto) {
+        return;
+    }
+    indiceProductoEditando = indice;
+    document.getElementById("nombre").value = producto.nombre;
+    document.getElementById("descripcion").value = producto.descripcion;
+    document.getElementById("precio").value = producto.precio;
+    document.getElementById("tipoIVA").value = producto.iva;
+    document.getElementById("stock").value = producto.stock;
+    document.getElementById("imagen").value = producto.imagen;
+    document.getElementById("btn-agregar-producto").textContent = "Guardar cambios";
+    document.getElementById("btn-cancelar-modificacion").hidden = false;
+    document.querySelector(".form-modificar").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 }
 
 function mostrarListaAdmin(){
