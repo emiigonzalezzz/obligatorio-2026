@@ -30,6 +30,7 @@ if (indiceProductoEditando === null){
     indiceProductoEditando = null;
     limpiarAgregar();
     document.getElementById("btn-agregar-producto").textContent = "Agregar producto";
+	document.getElementById("titulo-formulario").textContent = "Agregar producto";
     document.getElementById("btn-cancelar-modificacion").hidden = true;
     mostrarListaAdmin();
     mostrarProductos();
@@ -47,17 +48,16 @@ export function iniciarModificacion(indice){
     document.getElementById("stock").value = producto.stock;
     document.getElementById("imagen").value = producto.imagen;
     document.getElementById("btn-agregar-producto").textContent = "Guardar cambios";
+	document.getElementById("titulo-formulario").textContent = "Modificar producto";
     document.getElementById("btn-cancelar-modificacion").hidden = false;
-    document.querySelector(".form-modificar").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
+    document.querySelector(".form-modificar").scrollIntoView({behavior: "smooth", block: "start"});
 }
 
 export function cancelarModificacion(){
     indiceProductoEditando = null;
     limpiarAgregar();
     document.getElementById("btn-agregar-producto").textContent = "Agregar producto";
+	document.getElementById("titulo-formulario").textContent = "Agregar producto";
     document.getElementById("btn-cancelar-modificacion").hidden = true;
 }
 
