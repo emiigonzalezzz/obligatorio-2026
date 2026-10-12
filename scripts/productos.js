@@ -77,12 +77,20 @@ function mostrarListaAdmin(){
 	`;
 }
 }
+
 export function eliminarProducto(indice){
+    if (indiceProductoEditando === indice){
+        cancelarModificacion();
+    }else if(
+        indiceProductoEditando !== null && indice < indiceProductoEditando){ 
+		indiceProductoEditando--;
+    }
     productos.splice(indice, 1);
     localStorage.setItem("productos", JSON.stringify(productos));
     mostrarListaAdmin();
     mostrarProductos();
 }
+
 export function modificarProducto(){
 	let nombre = document.getElementById("nombreProducto").value;
     let nuevoNombre = document.getElementById("nuevoNombre").value;
