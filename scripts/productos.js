@@ -61,7 +61,6 @@ export function cancelarModificacion(){
     document.getElementById("btn-cancelar-modificacion").hidden = true;
 }
 
-
 function mostrarListaAdmin(){
     let lista = document.getElementById("listaAdmin");
     if (lista == null){
