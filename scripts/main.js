@@ -139,12 +139,17 @@ if(btnProductos){
 });
 }
 
+
 const listaAdmin = document.getElementById("listaAdmin");
 if (listaAdmin){
     listaAdmin.addEventListener("click", function(event){
     if (event.target.classList.contains("btn-eliminar-admin")){
-    const indice = Number(event.target.dataset.indice);
-    eliminarProducto(indice);
+        const indice = Number(event.target.dataset.indice);
+        eliminarProducto(indice);
+}
+    if(event.target.classList.contains("btn-modificar-admin")){
+        const indice = Number(event.target.dataset.indice);
+        iniciarModificacion(indice);
 }
 });
 }
