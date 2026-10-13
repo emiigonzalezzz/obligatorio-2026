@@ -1005,3 +1005,77 @@ body{
         height: 130px;
     }
 }
+
+/* RESPONSIVE LOGIN Y REGISTER */
+.inicio h1 {
+    font-size: 5em;
+}
+
+.inicio h2 {
+    font-size: 4em;
+}
+
+.inicio form {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* CELULARES */
+@media (max-width: 600px) {
+    .logo-top {
+        height: auto;
+        padding: 10px;
+    }
+
+    .logo-top .logo img {
+        width: 65px;
+        height: 60px;
+    }
+
+    .inicio {
+        width: 100%;
+        min-height: auto;
+        padding: 15px;
+    }
+
+    .inicio h1 {
+        font-size: 2.2em;
+        overflow-wrap: anywhere;
+    }
+
+    .inicio h2 {
+        font-size: 1.8em;
+    }
+
+    .inicio form {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .inicio form input {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .inicio p {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .inicio .btn-admin {
+        width: 100%;
+        max-width: 300px;
+        min-height: 45px;
+        margin: 10px auto;
+        display: block;
+        font-size: 16px;
+    }
+
+    .inicio > a {
+        width: 100%;
+        max-width: 300px;
+        display: block;
+        text-align: center;
+    }
+}
+
