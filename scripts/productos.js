@@ -130,15 +130,16 @@ if(document.getElementById("productos")){
 export function calcularPrecioFinal(producto){
     let precio = Number(producto.precio);
     let iva = 0;
-    if(producto.iva == "minimo"){
+    if (producto.iva == "minimo"){
         iva = 0.10;
-    }else if(producto.iva == "basico"){
-        iva = 0.22;	
-}else{
-	iva = 0;
+}else if(producto.iva == "basico") {
+        iva = 0.22;
+}else if(producto.iva == "ninguno" || producto.iva == "sin iva"){
+        iva = 0;
 }
     return Math.round(precio + (precio * iva));
 }
+
 function mostrarProductos(){
     let contenedor = document.getElementById("productos");
     if (contenedor == null){
