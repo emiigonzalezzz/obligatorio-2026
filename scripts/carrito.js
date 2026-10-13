@@ -33,52 +33,64 @@ export function agregarCarrito(indice){
     alert("Producto agregado al carrito");
 }
 
-function mostrarCarrito() {
+function mostrarCarrito(){
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     let lista = document.getElementById("listaCarrito");
-    if (!lista) {
+    if (!lista){
         return;
 }
-lista.innerHTML = "";
-let subtotalCompra = 0;
-let ivaCompra = 0;
-let totalCompra = 0;
-if (carrito.length === 0){
-    lista.innerHTML = "<p>El carrito está vacío.</p>";
+    lista.innerHTML = "";
+    let subtotalCompra = 0;
+    let ivaCompra = 0;
+    let totalCompra = 0;
+    if (carrito.length === 0) {
+        lista.innerHTML = "<p>El carrito está vacío.</p>";
+        const totalElemento = document.getElementById("total");
+        if (totalElemento){
+            totalElemento.innerHTML = `
+            <p>Subtotal sin IVA: $0.00</p>
+            <p>IVA total: $0.00</p>
+            <p>Total con IVA: $0.00</p>
+`;
+}
     return;
 }
-    carrito.forEach(function(item, indice){
+    carrito.forEach(function(item, indice) {
         let producto = item.producto;
-        let cantidad = item.cantidad;
-        let precio = calcularPrecioFinal(producto);
-        let subtotal = precio * cantidad;
-		total += subtotal;
+        let cantidad = Number(item.cantidad);
+        let precioBase = Number(producto.precio);
+        let precioFinal = calcularPrecioFinal(producto);
+        let subtotal = precioBase * cantidad;
+        let totalProducto = precioFinal * cantidad;
+        let iva = totalProducto - subtotal;
+        subtotalCompra += subtotal;
+        ivaCompra += iva;
+        totalCompra += totalProducto;
         lista.innerHTML += `
-            <div class="producto-carrito">
+        <div class="producto-carrito">
             <img src="${producto.imagen}" alt="${producto.nombre}">
             <div>
             <h3>${producto.nombre}</h3>
             <p>${producto.descripcion}</p>
-            <p>Precio: $${precio}</p>
-			<p>Cantidad:</p>
-			<input type="number" class="cantidad-carrito" data-indice="${indice}"value="${cantidad}"min="1"max="${producto.stock}">
-            <p>Subtotal: $${subtotal}</p>
+            <p>Precio sin IVA: $${precioBase}</p>
+            <p>Cantidad:</p>
+            <input type="number" class="cantidad-carrito" data-indice="${indice}" value="${cantidad}" min="1" max="${producto.stock}">
+            <p>Subtotal sin IVA: $${subtotal}</p>
+            <p>IVA: $${iva</p>
+            <p>Total del producto: $${totalProducto}</p>
             <button class="btn-eliminar-carrito" data-indice="${indice}">Eliminar</button>
-            </div>
-            </div>
+        </div>
+        </div>
 `;
 });
-const totalElemento = document.getElementById("total");
-if (totalElemento) {
-    totalElemento.innerHTML = `
-    <span class="titulo-resumen">Resumen de compra</span>
-    <p>Subtotal sin IVA: <strong>$${subtotalCompra.toFixed(2)}</strong></p>
-    <p>IVA total: <strong>$${ivaCompra.toFixed(2)}</strong></p>
-    <p class="total-final">Total con IVA: <strong>$${totalCompra.toFixed(2)}</strong></p>
+    const totalElemento = document.getElementById("total");
+    if (totalElemento){
+        totalElemento.innerHTML = `
+        <p>Subtotal sin IVA: $${subtotalCompra}</p>
+        <p>IVA total: $${ivaCompra}</p>
+        <p>Total con IVA: $${totalCompra}</p>
 `;
 }
-if (document.getElementById("listaCarrito")){
-    mostrarCarrito();
 }
 
 export function cambiarCantidad(indice, cantidad){
