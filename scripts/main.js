@@ -89,11 +89,17 @@ if (filtroPrecio){
 const contenedorProductos = document.getElementById("productos");
 if (contenedorProductos){
     contenedorProductos.addEventListener("click", function(event){
-if (event.target.classList.contains("btn-carrito")){
-    const indice = Number(event.target.dataset.indice);
-    agregarCarrito(indice);
+    const boton = event.target.closest(".btn-carrito");
+    if (!boton || !contenedorProductos.contains(boton)){
+        return;
 }
-});
+    const indice = Number(boton.dataset.indice);
+    if (boton.dataset.indice === undefined || !Number.isInteger(indice)) {
+        alert("No se pudo identificar el producto.");
+        return;
+}
+    agregarCarrito(indice);
+    });
 }
 
 const btnVaciar = document.getElementById("btn-vaciar");
