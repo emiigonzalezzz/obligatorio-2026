@@ -1172,3 +1172,41 @@ body{
     }
 }
 
+/* Tabla de ventas responsive */
+.tabla-responsive {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tabla-responsive table {
+    width: 100%;
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+
+    .tabla-responsive table {
+        min-width: 700px;
+    }
+
+    .tabla-responsive th,
+    .tabla-responsive td {
+        padding: 10px;
+        white-space: nowrap;
+    }
+
+    .tabla-responsive th {
+        font-size: 14px;
+    }
+
+    .tabla-responsive td {
+        font-size: 14px;
+    }
+
+    .tabla-responsive button {
+        font-size: 14px;
+    }
+}
+
