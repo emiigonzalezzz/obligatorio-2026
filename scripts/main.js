@@ -108,6 +108,7 @@ if (btnComprar){
 
 const listaCarrito = document.getElementById("listaCarrito");
 if (listaCarrito){
+    mostrarCarrito();
     listaCarrito.addEventListener("click", function(event){
 if (event.target.classList.contains("btn-eliminar-carrito")){
     const indice = Number(event.target.dataset.indice);
