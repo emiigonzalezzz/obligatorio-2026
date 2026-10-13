@@ -9,20 +9,22 @@
 <body>
     <h1>Panel de ventas</h1>
     <h2>Ventas realizadas</h2>
+    <div class="tabla-responsive">
     <table border="1">
-        <thead>
-        <tr>
+    <thead>
+    <tr>
         <th>Fecha</th>
-            <th>Comprador</th>
-            <th>Cant. Productos</th>
-            <th>Subtotal</th>
-            <th>IVA</th>
-            <th>Total</th>
-            <th>Acción</th>
-        </tr>
-        </thead>
-        <tbody id="tablaVentas"></tbody>
+        <th>Comprador</th>
+        <th>Cant. Productos</th>
+        <th>Subtotal</th>
+        <th>IVA</th>
+        <th>Total</th>
+        <th>Acción</th>
+    </tr>
+    </thead>
+    <tbody id="tablaVentas"></tbody>
     </table>
+</div>
     <br>
     <button type="button" class="btn-general" onclick="window.location.href='admin.html'">Volver al panel de administración</button>
     <script type="module" src="scripts/main.js"></script>
