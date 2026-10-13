@@ -76,7 +76,7 @@ function mostrarCarrito(){
             <p>Cantidad:</p>
             <input type="number" class="cantidad-carrito" data-indice="${indice}" value="${cantidad}" min="1" max="${producto.stock}">
             <p>Subtotal sin IVA: $${subtotal}</p>
-            <p>IVA: $${iva</p>
+            <p>IVA: $${iva}</p>
             <p>Total del producto: $${totalProducto}</p>
             <button class="btn-eliminar-carrito" data-indice="${indice}">Eliminar</button>
         </div>
