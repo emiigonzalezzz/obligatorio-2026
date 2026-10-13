@@ -13,6 +13,7 @@ if (nombre === "" || descripcion === "" ||
     alert("Debe completar todos los campos");
     return;
 }
+	
 let producto ={
     nombre: nombre,
     descripcion: descripcion,
