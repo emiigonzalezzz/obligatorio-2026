@@ -830,99 +830,54 @@ body{
     font-size: 16px;
 }
 }
-.header{
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-areas:"izquierda derecha""titulo titulo";
-    align-items: center;
-    gap: 20px 15px;
-    width: 100%;
-    padding: 15px 20px;
-    background-color: white;
-    border-bottom: 1px solid #ddd;
-}
-.header-izquierda{
-    grid-area: izquierda;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
-    min-width: 0;
-}
-.header-derecha{
-    grid-area: derecha;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 10px;
-    min-width: 0;
-}
-.header h1{
-    grid-area: titulo;
-    width: 100%;
-    margin: 0;
-    text-align: center;
-    font-size: 3em;
-    line-height: 1.2;
-    color: #343434;
-    overflow-wrap: anywhere;
-}
-.header .logo img{
-    display: block;
-    width: 90px;
-    height: 80px;
-    object-fit: contain;
-}
-.header .btn-general{
-    max-width: 100%;
-    font-size: 16px;
-    padding: 10px 12px;
-}
-@media (max-width: 900px){
-.header {
-    padding: 12px;
-    gap: 15px 10px;
-}
-.header h1{
-    font-size: 2.5em;
-}
-.header .logo img{
-    width: 75px;
-    height: 70px;
-}
-.header .btn-general{
-    font-size: 14px;
-    padding: 9px 10px;
-}
-}
+
 @media (max-width: 600px) {
-.header {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:"izquierda""derecha""titulo";
-    justify-items: center;
-    gap: 15px;
-    padding: 15px 10px;
-}
-.header-izquierda,
-.header-derecha {
-        width: 100%;
-        justify-content: center;
+    .header {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "izquierda"
+            "derecha"
+            "titulo";
+        justify-items: stretch;
+        gap: 15px;
+        padding: 15px 10px;
+    }
+
+    .header-izquierda {
+        grid-area: izquierda;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         flex-wrap: wrap;
         gap: 8px;
-}
-.header h1{
-    font-size: 2em;
-}
-.header .logo img{
-    width: 65px;
-    height: 60px;
-}
-.header .btn-general{
-    font-size: 14px;
-    padding: 9px 10px;
-}
+        width: 100%;
+    }
+
+    .header-derecha {
+        grid-area: derecha;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .header h1 {
+        grid-area: titulo;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    .header .logo img {
+        width: 65px;
+        height: 60px;
+    }
+
+    .header .btn-general {
+        font-size: 14px;
+        padding: 9px 10px;
+    }
 }
 
 
