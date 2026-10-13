@@ -1234,18 +1234,33 @@ padding: 0 10px;
 box-sizing: border-box;
 }
 
-/* Celulares */
 @media (max-width: 600px) {
 .botones-admin {
-position: static;
-width: 100%;
-padding: 0 15px;
-margin: 20px auto;
-box-sizing: border-box;
+position: absolute;
+top: 10px;
+right: 10px;
+display: flex;
+flex-direction: column;
+align-items: stretch;
+gap: 8px;
+width: 145px;
+margin: 0;
+padding: 0;
+z-index: 10;
 }
+
 .botones-admin #btn-productos,
 .botones-admin #btn-ver-ventas {
+    position: static;
     width: 100%;
-    max-width: 300px;
+    height: 40px;
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.div-admin {
+    padding-top: 100px;
 }
 }
