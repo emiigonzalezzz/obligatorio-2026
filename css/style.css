@@ -92,12 +92,6 @@ section p a{
     gap: 20px;
     padding: 20px;
 }
-@media (max-width: 600px){
-.productos{
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-}
-}
 
 .producto{
     border: 1px solid #ddd;
@@ -764,12 +758,13 @@ body{
     height: 90px;
 }
 }
-@media (max-width: 600px){
-.productos{
-    grid-template-columns: minmax(0, 1fr);
-    padding: 12px;
-    gap: 15px;
-}
+@media (max-width: 600px) {
+    .productos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 10px;
+        gap: 10px;
+    }
 .producto{
     min-width: 0;
     padding: 12px;
