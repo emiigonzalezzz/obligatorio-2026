@@ -33,7 +33,7 @@ export function agregarCarrito(indice){
     alert("Producto agregado al carrito");
 }
 
-function mostrarCarrito(){
+export function mostrarCarrito(){
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     let lista = document.getElementById("listaCarrito");
     if (!lista){
@@ -111,11 +111,16 @@ export function cambiarCantidad(indice, cantidad){
     mostrarCarrito();
 }
 
-export function eliminarCarrito(indice) {
+export function eliminarCarrito(indice){
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    if (!carrito[indice]){
+        return;
+}
     carrito.splice(indice, 1);
     localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito();
 }
+
 export function vaciarCarrito(){
     carrito = [];
     localStorage.setItem("carrito", JSON.stringify(carrito));
