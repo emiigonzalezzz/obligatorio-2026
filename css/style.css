@@ -830,67 +830,63 @@ body{
     font-size: 16px;
 }
 }
-
-@media (max-width: 600px) {
     
+@media (max-width: 600px) {
+   /* HEADER RESPONSIVE PARA CELULARES */
 @media (max-width: 600px) {
     .header {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr) auto;
         grid-template-areas:
-            "titulo"
-            "izquierda"
-            "derecha";
-        justify-items: center;
+            "izquierda derecha"
+            "titulo titulo";
         align-items: center;
-        gap: 12px;
-        padding: 12px 8px;
-    }
-
-    .header h1 {
-        grid-area: titulo;
-        font-size: 2rem;
-        line-height: 1.2;
-        margin: 0;
-        text-align: center;
+        column-gap: 8px;
+        row-gap: 12px;
+        padding: 12px 10px;
     }
 
     .header-izquierda {
         grid-area: izquierda;
-        width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
+        min-width: 0;
     }
 
     .header-derecha {
         grid-area: derecha;
-        width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         gap: 8px;
+        min-width: 0;
+    }
+
+    .header h1 {
+        grid-area: titulo;
+        justify-self: center;
+        text-align: center;
+        font-size: 2rem;
+        line-height: 1.2;
+        margin: 0;
+        white-space: normal;
     }
 
     .header .btn-general {
-        font-size: 14px;
-        padding: 8px 10px;
+        font-size: 12px;
+        padding: 8px;
         margin: 0;
+        white-space: nowrap;
     }
 
     .header .logo img {
-        width: 58px;
-        height: 55px;
+        width: 48px;
+        height: 48px;
         object-fit: contain;
-    }
-}
-
-    .header .btn-general {
-        font-size: 14px;
-        padding: 9px 10px;
     }
 }
 
