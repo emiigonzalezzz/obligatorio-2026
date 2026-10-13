@@ -163,7 +163,7 @@ export function finalizarCompra(){
     let subtotal = 0;
     let ivaTotal = 0;
     let total = 0;
-    for (let i = 0; i < carrito.length; i++) {
+    for (let i = 0; i < carrito.length; i++){
         let item = carrito[i];
         cantidadProductos += Number(item.cantidad);
         let precioBase = Number(item.producto.precio);
