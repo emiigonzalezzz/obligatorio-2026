@@ -167,27 +167,13 @@ export function finalizarCompra(){
         let item = carrito[i];
         cantidadProductos += item.cantidad;
         let precioBase = Number(item.producto.precio);
-        let ivaPorcentaje;
-        if (item.producto.iva == "minimo"){
-            ivaPorcentaje = 0.10;
-        }
-        else if (item.producto.iva == "basico"){
-            ivaPorcentaje = 0.22;
-        }
-        else if (item.producto.iva == "sin iva"){
-            ivaPorcentaje = 0;
-		}
-        else{
-            ivaPorcentaje = 0;
-}
-
-        let subtotalProducto = precioBase * item.cantidad;
-		let ivaProducto = precioBase * ivaPorcentaje * item.cantidad;
-        let totalProducto = subtotalProducto + ivaProducto;
-        subtotal += subtotalProducto;
-        ivaTotal += ivaProducto;
-        total += totalProducto;
-}
+let precioFinal = calcularPrecioFinal(item.producto);
+let subtotalProducto = precioBase * item.cantidad;
+let totalProducto = precioFinal * item.cantidad;
+let ivaProducto = totalProducto - subtotalProducto;
+	subtotal += subtotalProducto;
+	ivaTotal += ivaProducto;
+	total += totalProducto;
     ventas.push({fecha: new Date().toLocaleString(),
         comprador: usuario.nombre,
         cantidadProductos: cantidadProductos,
