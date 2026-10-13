@@ -143,7 +143,7 @@ section p a{
     font-weight: bold;
 }
 
-.btn-eliminar-carrito {
+.btn-eliminar-carrito{
     display: block;
     margin-left: auto;
     background-color: #343434;
@@ -478,13 +478,13 @@ border-radius: 0;
     margin-bottom: 15px;
 }
 
-.contenido-carrito {
+.contenido-carrito{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.resumen-carrito {
+.resumen-carrito{
     position: sticky;
     top: 0;
     order: -1;
@@ -494,23 +494,22 @@ border-radius: 0;
     border-radius: 12px;
 }
 
-.resumen-carrito h2 {
+.resumen-carrito h2{
     font-size: 21px;
     margin-bottom: 8px;
 }
 
-.resumen-carrito button {
+.resumen-carrito button{
     width: 100%;
     margin-top: 8px;
     padding: 10px;
     font-size: 14px;
 }
-
 #listaCarrito {
     width: 100%;
 }
 
-.producto-carrito {
+.producto-carrito{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -519,31 +518,31 @@ border-radius: 0;
     margin-bottom: 12px;
 }
 
-.producto-carrito img {
+.producto-carrito img{
     width: 85px;
     height: 85px;
     object-fit: cover;
     flex-shrink: 0;
 }
 
-.producto-carrito h3 {
+.producto-carrito h3{
     flex: 1 1 120px;
     min-width: 0;
     font-size: 16px;
     overflow-wrap: anywhere;
 }
 
-.producto-carrito p {
+.producto-carrito p{
     font-size: 14px;
 }
 
-.producto-carrito input[type="number"] {
+.producto-carrito input[type="number"]{
     width: 65px;
     height: 36px;
     font-size: 15px;
 }
 
-.producto-carrito .btn-eliminar-carrito {
+.producto-carrito .btn-eliminar-carrito{
     padding: 8px 10px;
     font-size: 13px;
 }
@@ -724,8 +723,8 @@ body{
     height: 220px;
 }
 }
-@media (max-width: 600px) {
-    .productos {
+@media (max-width: 600px){
+    .productos{
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         padding: 10px;
@@ -767,9 +766,7 @@ body{
     font-size: 16px;
 }
 }
-    
-/* HEADER DE PRODUCTOS */
-.header {
+.header{
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     grid-template-areas: "izquierda titulo derecha";
@@ -781,7 +778,7 @@ body{
     border-bottom: 1px solid #ddd;
 }
 
-.header-izquierda {
+.header-izquierda{
     grid-area: izquierda;
     display: flex;
     align-items: center;
@@ -791,7 +788,7 @@ body{
     min-width: 0;
 }
 
-.header-derecha {
+.header-derecha{
     grid-area: derecha;
     display: flex;
     align-items: center;
@@ -801,7 +798,7 @@ body{
     min-width: 0;
 }
 
-.header h1 {
+.header h1{
     grid-area: titulo;
     margin: 0;
     text-align: center;
@@ -810,313 +807,255 @@ body{
     white-space: nowrap;
 }
 
-.header .logo img {
+.header .logo img{
     display: block;
     width: 80px;
     height: 70px;
     object-fit: contain;
 }
 
-.header .btn-general {
+.header .btn-general{
     font-size: 16px;
     padding: 8px 12px;
 }
 
-/* HEADER EN CELULARES */
-@media (max-width: 700px) {
-    .header {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-areas:
-            "titulo"
-            "izquierda"
-            "derecha";
-        justify-items: center;
-        gap: 12px;
-        padding: 15px 10px;
-    }
-
-    .header-izquierda,
-    .header-derecha {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    .header h1 {
-        font-size: 2rem;
-        white-space: normal;
-    }
-
-    .header .logo img {
-        width: 65px;
-        height: 60px;
-    }
-
-    .header .btn-general {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
+@media (max-width: 700px){
+.header{
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:"titulo""izquierda""derecha";
+    justify-items: center;
+    gap: 12px;
+	padding: 15px 10px;
 }
-/* Todas las tarjetas de productos del mismo tamaño */
+.header-izquierda,
+.header-derecha{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.header h1{
+    font-size: 2rem;
+    white-space: normal;
+}
+.header .logo img{
+    width: 65px;
+    height: 60px;
+}
+    .header .btn-general{
+    font-size: 14px;
+    padding: 8px 10px;
+}
+}
 .producto {
     box-sizing: border-box;
 }
-
-/* El contenido ocupa el espacio disponible */
 .producto h2,
-.producto h3 {
+.producto h3{
     min-height: 2.4em;
 }
-
-/* Mantener las tarjetas alineadas en la grilla */
-.productos {
+.productos{
     align-items: stretch;
 }
-
-@media (max-width: 600px) {
-    .producto img {
-        height: 130px;
-    }
+@media (max-width: 600px){
+.producto img{
+    height: 130px;
 }
-
-/* RESPONSIVE LOGIN Y REGISTER */
-.inicio form {
+}
+.inicio form{
     width: 100%;
     max-width: 500px;
 }
-
-/* CELULARES */
-@media (max-width: 600px) {
-    .logo-top {
-        height: auto;
-        padding: 10px;
-    }
-
-    .logo-top .logo img {
-        width: 65px;
-        height: 60px;
-    }
-
-    .inicio {
-        width: 100%;
-        min-height: auto;
-        padding: 15px;
-    }
-
-    .inicio h1 {
-        font-size: 2.2em;
-        overflow-wrap: anywhere;
-    }
-
-    .inicio h2 {
-        font-size: 1.8em;
-    }
-
-    .inicio form {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .inicio form input {
-        width: 100%;
-        font-size: 16px;
-    }
-
-    .inicio p {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .inicio .btn-admin {
-        width: 100%;
-        max-width: 300px;
-        min-height: 45px;
-        margin: 10px auto;
-        display: block;
-        font-size: 16px;
-    }
-
-    .inicio > a {
-        width: 100%;
-        max-width: 300px;
-        display: block;
-        text-align: center;
-    }
+@media (max-width: 600px){
+.logo-top{
+    height: auto;
+    padding: 10px;
 }
-
-/* RESPONSIVE ADMINISTRADOR */
-@media (max-width: 600px) {
-
-    .div-admin {
-        width: 100%;
-        margin: 15px auto;
-        padding: 15px;
-        box-sizing: border-box;
-        border-radius: 15px;
-    }
-
-    .div-admin h1 {
-        font-size: 30px;
-        margin-bottom: 20px;
-        overflow-wrap: anywhere;
-    }
-
-    .div-admin h2 {
-        font-size: 23px;
-        margin: 20px 0;
-    }
-
-    /* Formulario */
-    .form-modificar {
-        grid-template-columns: 1fr;
-        gap: 5px;
-    }
-
-    .form-modificar .campo {
-        min-width: 0;
-        margin-bottom: 10px;
-    }
-
-    .campo label {
-        font-size: 17px;
-    }
-
-    .campo input,
-    .campo select {
-        width: 100%;
-        height: 45px;
-        padding: 0 10px;
-        font-size: 16px;
-        box-sizing: border-box;
-    }
-
-    .form-modificar button {
-        grid-column: 1;
-        width: 100%;
-        max-width: 280px;
-        height: auto;
-        min-height: 45px;
-        font-size: 16px;
-        justify-self: center;
-    }
-
-    /* Productos registrados */
-    #listaAdmin {
-        padding: 8px;
-        min-width: 0;
-    }
-
-    #listaAdmin p {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-        font-size: 18px;
-        overflow-wrap: anywhere;
-    }
-
-    .btn-eliminar-admin,
-    .btn-modificar-admin {
-        width: 100%;
-        max-width: 250px;
-        height: 42px;
-        margin: 5px auto;
-        font-size: 15px;
-    }
-
-    /* Botones inferiores */
-    #btn-ver-ventas,
-    #btn-productos {
-        display: block;
-        width: 90%;
-        max-width: 300px;
-        min-height: 45px;
-        margin: 12px auto;
-        font-size: 16px;
-        box-sizing: border-box;
-    }
+.logo-top .logo img{
+    width: 65px;
+    height: 60px;
 }
-
-/* Tabla de ventas responsive */
-.tabla-responsive {
+.inicio{
+    width: 100%;
+    min-height: auto;
+    padding: 15px;
+}
+.inicio h1{
+    font-size: 2.2em;
+    overflow-wrap: anywhere;
+}
+.inicio h2{
+    font-size: 1.8em;
+}
+.inicio form{
+    width: 100%;
+    padding: 15px;
+}
+.inicio form input{
+    width: 100%;
+    font-size: 16px;
+}
+.inicio p{
+    font-size: 16px;
+    text-align: center;
+}
+.inicio .btn-admin{
+    width: 100%;
+    max-width: 300px;
+    min-height: 45px;
+    margin: 10px auto;
+    display: block;
+    font-size: 16px;
+}
+.inicio > a{
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    text-align: center;
+}
+}
+@media (max-width: 600px){
+.div-admin{
+    width: 100%;
+    margin: 15px auto;
+	padding: 15px;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+.div-admin h1{
+    font-size: 30px;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+.div-admin h2{
+    font-size: 23px;
+    margin: 20px 0;
+}
+.form-modificar{
+    grid-template-columns: 1fr;
+    gap: 5px;
+}
+.form-modificar .campo{
+    min-width: 0;
+    margin-bottom: 10px;
+}
+.campo label{
+    font-size: 17px;
+}
+.campo input,
+.campo select{
+    width: 100%;
+    height: 45px;
+    padding: 0 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.form-modificar button{
+    grid-column: 1;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    min-height: 45px;
+    font-size: 16px;
+    justify-self: center;
+}
+#listaAdmin{
+    padding: 8px;
+    min-width: 0;
+}
+#listaAdmin p{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+.btn-eliminar-admin,
+.btn-modificar-admin {
+    width: 100%;
+    max-width: 250px;
+    height: 42px;
+    margin: 5px auto;
+    font-size: 15px;
+}
+#btn-ver-ventas,
+#btn-productos{
+    display: block;
+    width: 90%;
+    max-width: 300px;
+    min-height: 45px;
+    margin: 12px auto;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+}
+.tabla-responsive{
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
 
-.tabla-responsive table {
+.tabla-responsive table{
     width: 100%;
 }
-
-/* Celulares */
-@media (max-width: 600px) {
-
-    .tabla-responsive table {
-        min-width: 700px;
-    }
-
-    .tabla-responsive th,
-    .tabla-responsive td {
-        padding: 10px;
-        white-space: nowrap;
-    }
-
-    .tabla-responsive th {
-        font-size: 14px;
-    }
-
-    .tabla-responsive td {
-        font-size: 14px;
-    }
-
-    .tabla-responsive button {
-        font-size: 14px;
-    }
+@media (max-width: 600px){
+.tabla-responsive table{
+    min-width: 700px;
 }
-
-
-/* Botones del administrador */
-.botones-admin {
-position: absolute;
-top: 20px;
-right: 20px;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 10px;
-margin: 0;
+.tabla-responsive th,
+.tabla-responsive td{
+    padding: 10px;
+    white-space: nowrap;
+}
+.tabla-responsive th{
+    font-size: 14px;
+}
+tabla-responsive td{
+    font-size: 14px;
+}
+.tabla-responsive button{
+    font-size: 14px;
+}
+}
+.botones-admin{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	margin: 0;
+}
+.botones-admin #btn-productos,
+.botones-admin #btn-ver-ventas{
+	position: static;
+	display: block;
+	width: 250px;
+	height: 45px;
+	margin: 0;
+	padding: 0 10px;
+	box-sizing: border-box;
+}
+@media (max-width: 600px){
+.botones-admin{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 8px;
+	width: 145px;
+	margin: 0;
+	padding: 0;
+	z-index: 10;
 }
 
 .botones-admin #btn-productos,
-.botones-admin #btn-ver-ventas {
-position: static;
-display: block;
-width: 250px;
-height: 45px;
-margin: 0;
-padding: 0 10px;
-box-sizing: border-box;
-}
-
-@media (max-width: 600px) {
-.botones-admin {
-position: absolute;
-top: 10px;
-right: 10px;
-display: flex;
-flex-direction: column;
-align-items: stretch;
-gap: 8px;
-width: 145px;
-margin: 0;
-padding: 0;
-z-index: 10;
-}
-
-.botones-admin #btn-productos,
-.botones-admin #btn-ver-ventas {
+.botones-admin #btn-ver-ventas{
     position: static;
     width: 100%;
     height: 40px;
@@ -1126,12 +1065,12 @@ z-index: 10;
     font-size: 14px;
 }
 
-.div-admin {
+.div-admin{
     padding-top: 100px;
 }
 }
 .botones-admin #btn-productos,
-.botones-admin #btn-ver-ventas {
+.botones-admin #btn-ver-ventas{
     background-color: white;
     color: black;
     border: 1px solid #343434;
