@@ -1213,33 +1213,39 @@ body{
 
 /* Botones del administrador */
 .botones-admin {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin: 20px auto;
+position: absolute;
+top: 20px;
+right: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+margin: 0;
 }
 
 .botones-admin #btn-productos,
 .botones-admin #btn-ver-ventas {
-    display: block;
-    width: 250px;
-    height: 45px;
-    margin: 0;
-    padding: 0 10px;
-    box-sizing: border-box;
+position: static;
+display: block;
+width: 250px;
+height: 45px;
+margin: 0;
+padding: 0 10px;
+box-sizing: border-box;
 }
 
 /* Celulares */
 @media (max-width: 600px) {
-    .botones-admin {
-        width: 100%;
-        padding: 0 15px;
-        box-sizing: border-box;
-    }
-    .botones-admin #btn-productos,
-    .botones-admin #btn-ver-ventas {
-        width: 100%;
-        max-width: 300px;
-    }
+.botones-admin {
+position: static;
+width: 100%;
+padding: 0 15px;
+margin: 20px auto;
+box-sizing: border-box;
+}
+.botones-admin #btn-productos,
+.botones-admin #btn-ver-ventas {
+    width: 100%;
+    max-width: 300px;
+}
 }
