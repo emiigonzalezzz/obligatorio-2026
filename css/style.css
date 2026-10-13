@@ -358,7 +358,6 @@ input::placeholder {
     font-size: 20px;
     outline: none;
 }
-
 #filtroPrecio{
     padding: 12px 15px;
     border: 1px solid #ccc;
@@ -369,7 +368,6 @@ input::placeholder {
     outline: none;
 }
 
-
 .contenedor-carrito{
     width: 96%;
     max-width: 1500px;
@@ -378,13 +376,13 @@ input::placeholder {
     padding: 30px;
     background-color: white;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
 .contenido-carrito{
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 30px;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 25px;
     align-items: start;
 }
 
@@ -396,67 +394,136 @@ input::placeholder {
 }
 
 .producto-carrito{
-    display: grid;
-    grid-template-columns: 190px 1.5fr 1fr 1fr 1fr 1fr;
+    display: flex;
     align-items: center;
-    gap: 25px;
-    padding: 30px;
-    border: 1px solid #eee;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
     border-radius: 15px;
+    background-color: #fafafa;
 }
+
 .producto-carrito img{
-    width: 180px;
-    height: 180px;
+    width: 130px;
+    height: 130px;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 12px;
 }
 
 .producto-carrito h3{
-    font-size: 32px;
+    flex: 1 1 180px;
+    font-size: 24px;
+    color: #343434;
 }
 
-.resumen-carrito{
+.producto-carrito p{
+    font-size: 18px;
+    color: #343434;
+    margin: 5px 0;
+}
+
+.producto-carrito input[type="number"]{
+    width: 75px;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.producto-carrito .total-producto{
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 20px;
+    color: #343434;
+    text-align: left;
+}
+
+.producto-carrito .btn-eliminar-carrito{
+    margin: 0;
+    padding: 10px 16px;
+    background-color: #343434;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.producto-carrito .btn-eliminar-carrito:hover{
+    background-color: #555;
+}
+
+.resumen-carrito {
     position: sticky;
     top: 20px;
     padding: 25px;
     background-color: #f5f5f5;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
-
-.resumen-carrito h2{
-    font-size: 32px;
+.resumen-carrito h2 {
+    font-size: 26px;
     margin-bottom: 15px;
     color: #343434;
-} 
-
-.producto-carrito p{
-    font-size: 18px;
-    color: #000000;
 }
 
 .total-producto{
     border-top: 1px solid #ddd;
-    margin-top: 30px;
-    padding-top: 25px;
-    font-size: 28px;
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 24px;
     font-weight: bold;
 }
 
-.producto-carrito .total-producto{
-    grid-column: 5;
-    grid-row: 2;
-    margin: 0;
-    padding: 15px 0;
-    text-align: right;
+.resumen-carrito button{
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    background-color: #343434;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
-
-.producto-carrito .btn-eliminar-carrito {
-    grid-column: 6;
-    grid-row: 2;
-    justify-self: end;
-    margin: 0;
+.resumen-carrito button:hover{
+    background-color: #555;
+}
+@media (max-width: 1000px){
+    .contenido-carrito {
+        grid-template-columns: 1fr;
+    }
+    .resumen-carrito {
+        position: static;
+    }
+}
+@media (max-width: 600px){
+.contenedor-carrito{
+    width: 96%;
+    padding: 15px;
+}
+.titulo-carrito{
+    font-size: 30px;
+}
+.producto-carrito{
+    gap: 12px;
+    padding: 15px;
+}
+.producto-carrito img {
+    width: 90px;
+    height: 90px;
+}
+.producto-carrito h3 {
+    font-size: 20px;
+}
 }
 
 .producto-carrito input[type="number"]{
@@ -476,7 +543,7 @@ table{
     border-collapse: collapse;
     background-color: white;
     color: #343434;
-	   font-size: 25px;
+	font-size: 25px;
 }
 
 th{
