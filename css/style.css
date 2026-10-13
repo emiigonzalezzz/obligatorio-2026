@@ -922,3 +922,35 @@ body{
         padding: 8px 10px;
     }
 }
+/* Todas las tarjetas de productos del mismo tamaño */
+.producto {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Imágenes con la misma altura */
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* El contenido ocupa el espacio disponible */
+.producto h2,
+.producto h3 {
+    min-height: 2.4em;
+}
+
+/* Mantener las tarjetas alineadas en la grilla */
+.productos {
+    align-items: stretch;
+}
+
+@media (max-width: 600px) {
+    .producto img {
+        height: 130px;
+    }
+}
