@@ -40,8 +40,10 @@ function mostrarCarrito() {
         return;
 }
 lista.innerHTML = "";
-let total = 0;
-if (carrito.length === 0) {
+let subtotalCompra = 0;
+let ivaCompra = 0;
+let totalCompra = 0;
+if (carrito.length === 0){
     lista.innerHTML = "<p>El carrito está vacío.</p>";
     return;
 }
@@ -66,10 +68,14 @@ if (carrito.length === 0) {
             </div>
 `;
 });
-	const totalElemento = document.getElementById("total");
+const totalElemento = document.getElementById("total");
 if (totalElemento) {
-    totalElemento.textContent = `Total: $${total}`;
-}
+    totalElemento.innerHTML = `
+    <span class="titulo-resumen">Resumen de compra</span>
+    <p>Subtotal sin IVA: <strong>$${subtotalCompra.toFixed(2)}</strong></p>
+    <p>IVA total: <strong>$${ivaCompra.toFixed(2)}</strong></p>
+    <p class="total-final">Total con IVA: <strong>$${totalCompra.toFixed(2)}</strong></p>
+`;
 }
 if (document.getElementById("listaCarrito")){
     mostrarCarrito();
