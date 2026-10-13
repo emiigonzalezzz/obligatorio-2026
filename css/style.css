@@ -498,12 +498,12 @@ input::placeholder {
     background-color: #555;
 }
 @media (max-width: 1000px){
-    .contenido-carrito {
-        grid-template-columns: 1fr;
-    }
-    .resumen-carrito {
-        position: static;
-    }
+.contenido-carrito {
+    grid-template-columns: 1fr;
+}
+.resumen-carrito{
+    position: static;
+}
 }
 @media (max-width: 600px){
 .contenedor-carrito{
@@ -568,8 +568,6 @@ td{
     font-weight: bold;
     cursor: pointer;
 }
-```css
-/* Página de ventas */
 
 body:has(#tablaVentas) {
     padding: 30px;
@@ -578,7 +576,6 @@ body:has(#tablaVentas) {
     color: white;
 }
 
-/* Botón volver arriba a la derecha */
 body:has(#tablaVentas) > button {
     position: absolute;
     top: 25px;
@@ -597,8 +594,7 @@ body:has(#tablaVentas) > button:hover {
     background-color: #777;
 }
 
-/* Título principal */
-body:has(#tablaVentas) h1 {
+body:has(#tablaVentas) h1{
     text-align: center;
     font-size: 36px;
     margin-top: 35px;
@@ -606,15 +602,13 @@ body:has(#tablaVentas) h1 {
     color: white;
 }
 
-/* Subtítulo */
-body:has(#tablaVentas) h2 {
+body:has(#tablaVentas) h2{
     font-size: 25px;
     margin-bottom: 18px;
     color: white;
 }
 
-/* Tabla */
-body:has(#tablaVentas) table {
+body:has(#tablaVentas) table{
     width: 100%;
     border-collapse: collapse;
     background-color: white;
@@ -625,7 +619,6 @@ body:has(#tablaVentas) table {
     font-size: 17px;
 }
 
-/* Encabezados */
 body:has(#tablaVentas) th {
     background-color: #242424;
     color: white;
@@ -633,19 +626,16 @@ body:has(#tablaVentas) th {
     text-align: center;
 }
 
-/* Celdas */
 body:has(#tablaVentas) td {
     padding: 14px 12px;
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
-/* Filas */
 body:has(#tablaVentas) tbody tr:hover {
     background-color: #f0f0f0;
 }
 
-/* Botón eliminar */
 body:has(#tablaVentas) .btn-carrito {
     padding: 8px 14px;
     border: none;
@@ -654,33 +644,29 @@ body:has(#tablaVentas) .btn-carrito {
     font-size: 14px;
 }
 
-/* Adaptación para pantallas chicas */
 @media (max-width: 700px) {
     body:has(#tablaVentas) {
         padding: 15px;
         padding-top: 75px;
-    }
-
-    body:has(#tablaVentas) > button {
-        top: 15px;
-        right: 15px;
-    }
-
-    body:has(#tablaVentas) h1 {
-        font-size: 28px;
-        margin-top: 10px;
-    }
-
-    body:has(#tablaVentas) table {
-        font-size: 14px;
-    }
-
-    body:has(#tablaVentas) th,
-    body:has(#tablaVentas) td {
-        padding: 10px 8px;
-    }
 }
-```
+
+body:has(#tablaVentas) > button{
+    top: 15px;
+    right: 15px;
+}
+body:has(#tablaVentas) h1{
+    font-size: 28px;
+    margin-top: 10px;
+}
+body:has(#tablaVentas) table{
+    font-size: 14px;
+}
+body:has(#tablaVentas) th,
+body:has(#tablaVentas) td{
+    padding: 10px 8px;
+}
+}
+
 .footer{
     background-color: #212529;
     color: white;
