@@ -163,24 +163,26 @@ export function finalizarCompra(){
     let subtotal = 0;
     let ivaTotal = 0;
     let total = 0;
-    for (let i = 0; i < carrito.length; i++){
+    for (let i = 0; i < carrito.length; i++) {
         let item = carrito[i];
-        cantidadProductos += item.cantidad;
+        cantidadProductos += Number(item.cantidad);
         let precioBase = Number(item.producto.precio);
-let precioFinal = calcularPrecioFinal(item.producto);
-let subtotalProducto = precioBase * item.cantidad;
-let totalProducto = precioFinal * item.cantidad;
-let ivaProducto = totalProducto - subtotalProducto;
-	subtotal += subtotalProducto;
-	ivaTotal += ivaProducto;
-	total += totalProducto;
-    ventas.push({fecha: new Date().toLocaleString(),
+        let precioFinal = calcularPrecioFinal(item.producto);
+        let subtotalProducto = precioBase * item.cantidad;
+        let totalProducto = precioFinal * item.cantidad;
+        let ivaProducto = totalProducto - subtotalProducto;
+        subtotal += subtotalProducto;
+        ivaTotal += ivaProducto;
+        total += totalProducto;
+    }
+    ventas.push({
+        fecha: new Date().toLocaleString(),
         comprador: usuario.nombre,
         cantidadProductos: cantidadProductos,
         subtotal: subtotal,
         iva: ivaTotal,
         total: total
-});
+    });
     localStorage.setItem("ventas", JSON.stringify(ventas));
     carrito = [];
     localStorage.setItem("carrito", JSON.stringify(carrito));
