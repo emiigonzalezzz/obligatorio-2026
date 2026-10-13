@@ -174,7 +174,7 @@ export function finalizarCompra(){
         subtotal += subtotalProducto;
         ivaTotal += ivaProducto;
         total += totalProducto;
-    }
+}
     ventas.push({
         fecha: new Date().toLocaleString(),
         comprador: usuario.nombre,
@@ -182,7 +182,7 @@ export function finalizarCompra(){
         subtotal: subtotal,
         iva: ivaTotal,
         total: total
-    });
+});
     localStorage.setItem("ventas", JSON.stringify(ventas));
     carrito = [];
     localStorage.setItem("carrito", JSON.stringify(carrito));
