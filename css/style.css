@@ -1266,3 +1266,8 @@ z-index: 10;
     padding-top: 100px;
 }
 }
+.botones-admin #btn-productos,
+.botones-admin #btn-ver-ventas {
+background-color: white;
+color: black;
+}
